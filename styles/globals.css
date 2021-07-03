@@ -4,13 +4,21 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
 }
 
 .login-box h2 {
     font-weight: 800;
 }
 
+.payment_card {
+    background-color: white;
+}
 
+.payment_card .h1 {
+    font-weight: 900 !important;
+    letter-spacing: 1.2px;
+}
 
 /* for smaller than tablet sizes */
 @media only screen and (max-width: 786px) {}
