@@ -9,7 +9,7 @@ export default function Home() {
         <div className="col-lg-5 bg-primary pb-16 pb-sm-10">
         <h1 className="font-bolder display-6 p-md-10 px-10 mt-5 mt-lg-auto text-center text-white mb-3"><i className="bi bi-file-text"></i>&nbsp;&nbsp;Invoixe</h1>
             <div className="content align-content-center justify-content-center mt-lg-14">
-                <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
                 <div className="carousel-inner w-75 mx-auto">
                     <div className="carousel-item active" data-bs-interval="2500">
                     <img src="/Data-report.svg" className="d-block mx-auto" alt="..." />
