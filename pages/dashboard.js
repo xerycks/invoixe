@@ -74,10 +74,10 @@ const Dasboard = () => {
 
         </section>
 
-        <section className="container-xl position-relative">
+        <section className="container-xl position-relative p-0">
 
-        <div className="header position-sticky sticky-top py-2 bg-white">
-            <div className="row mt-5 h-auto p-0">
+        <div className="position-sticky sticky-top py-2 px-2 bg-white">
+            <div className="row mt-5 h-auto p-0 w-full">
                 <div className="col mb-3 mb-md-0 align-self-start justify-content-start">
                     <h1 className="h3 font-bolder mb-0">Invoices</h1>
                     <p className="text-xs">List of recent Transactions</p>
