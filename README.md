@@ -16,6 +16,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser and see the working prototype in development.
 
-Prodcution Build avaialable here : https://invoixe.vercel.app/
+Production Build avaialable here : https://invoixe.vercel.app/
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
