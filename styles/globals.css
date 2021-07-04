@@ -20,6 +20,14 @@ body {
     letter-spacing: 1.2px;
 }
 
+.carousel-item img {
+    width: 60%;
+}
+
+.carousel-item h3 {
+    font-size: clamp(20px, 2.5vw, 30px) !important;
+}
+
 /* for smaller than tablet sizes */
 @media only screen and (max-width: 786px) {}
 

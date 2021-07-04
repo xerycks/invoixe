@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/no-html-link-for-pages */
 export default function Home() {
   return (
@@ -5,10 +6,29 @@ export default function Home() {
 
     <section className="home container-fluid p-0">
         <div className="row home-inner m-0">
-        <div className="col-lg-5 bg-primary">
-            <div className="content">
-                <h1>Invoices with X-factors</h1>
+        <div className="col-lg-5 bg-primary pb-16 pb-sm-10">
+        <h1 className="font-bolder display-6 p-md-10 px-10 mt-5 mt-lg-auto text-center text-white mb-3"><i className="bi bi-file-text"></i>&nbsp;&nbsp;Invoixe</h1>
+            <div className="content align-content-center justify-content-center mt-lg-14">
+                <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-inner w-75 mx-auto">
+                    <div className="carousel-item active" data-bs-interval="2500">
+                    <img src="/Data-report.svg" className="d-block mx-auto" alt="..." />
+                    <h3 className="mx-auto w-90 text-center font-bolder text-white">Save your time making & delivering Receipts.</h3>
+                    <p className="text-xs text-white text-center mt-5">Time is Wealth !</p>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="2500">
+                    <img src="/Receipt.svg" className="d-block mx-auto" alt="..." />
+                    <h3 className="mx-auto w-90 text-center font-bolder text-white">Give a much more detail in customers bill !</h3>
+                    <p className="text-xs text-white text-center mt-5"> For better transparency !</p>
+                    </div>
+                    <div className="carousel-item" data-bs-interval="2500">
+                    <img src="Work-in-progress.svg" className="d-block mx-auto" alt="..." />
+                    <h3 className="mx-auto w-90 text-center font-bolder text-white">All your data saved securely on cloud.</h3>
+                    <p className="text-xs text-white text-center mt-5">Access from anywhere, anytime !</p>
+                </div>
             </div>
+        </div>
+        </div>
         </div>
         <div className="col-lg-7 d-flex justify-content-around">
             <div className="p-10 login-box m-lg-20 w-full">
