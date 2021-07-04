@@ -16,7 +16,7 @@ const Dasboard = () => {
                     <div className="mx-n1">
                         <div className="dropdown">
                             <button className="btn btn-sm btn-secondary dropdown-toggle mx-4" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                Quolaity&nbsp;&nbsp;
+                                Quoality&nbsp;&nbsp;
                             </button>
                             <ul className="dropdown-menu mt-2 border-dark" aria-labelledby="dropdownMenuButton">
                                 <li><a className="dropdown-item" href="#">New Invoice</a></li>
