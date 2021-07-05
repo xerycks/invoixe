@@ -21,6 +21,15 @@ input, button, a {
     background-color: white;
 }
 
+.payment_card:hover{
+    /* border: solid rgb(172, 172, 172) 1px; */
+    transform: scale(1.01);
+    transition-duration: 400ms;
+    box-shadow: 0 0 30px rgb(223, 223, 223) !important;
+    border-radius: 0;
+    cursor: pointer;
+}
+
 .payment_card .h1 {
     font-weight: 900 !important;
     letter-spacing: 1.2px;
@@ -36,10 +45,11 @@ input, button, a {
 
 input::placeholder {
     font-size: 12px;
-    position: absolute;
-    top: 50%;
-    transform: translate(0 , -50%);
 }
+
+/* styling tables */
+
+
 
 /* for smaller than tablet sizes */
 @media only screen and (max-width: 786px) {}
