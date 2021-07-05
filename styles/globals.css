@@ -7,6 +7,12 @@ body {
     scroll-behavior: smooth;
 }
 
+input, button, a {
+    outline: none !important;
+    /* border: none !important; */
+    outline-width: 0px;
+}
+
 .login-box h2 {
     font-weight: 800;
 }
@@ -26,6 +32,13 @@ body {
 
 .carousel-item h3 {
     font-size: clamp(20px, 2.5vw, 30px) !important;
+}
+
+input::placeholder {
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0 , -50%);
 }
 
 /* for smaller than tablet sizes */
