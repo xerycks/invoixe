@@ -218,7 +218,7 @@ function nayafunction() {
             <div className="offcanvas-body">
 
                 <div className="mb-5 input-group-md text-xs">
-                <form method="POST" onSubmit={(e) => {handleFormSubmit(e)}}>
+                <form onSubmit={(e) => {handleFormSubmit(e)}}>
                     <div>
                         <input type="name" required className="form-control mb-4" placeholder="Item Name" onChange={(e) => {setName(e.target.value)}}/>
                     </div>
