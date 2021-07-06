@@ -47,6 +47,13 @@ input::placeholder {
     font-size: 12px;
 }
 
+.offcanvas {
+    margin: 20px;
+    border: solid 2px rgb(241, 241, 241);
+    border-radius: 20px;
+    box-shadow: -5px 2px 30px -10px rgb(129, 129, 129) ;
+}
+
 /* styling tables */
 
 

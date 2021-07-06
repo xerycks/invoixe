@@ -69,7 +69,7 @@ const deleteInvoice = (e) => {
         <section className="container-xl position-static mb-10">
             <div className="row h-auto p-0 position-sticky sticky-top mt-2 py-3 bg-white">
                 <div className="col mb-md-0 align-self-start justify-content-start">
-                    <h1 className="h3 font-bolder mb-0">Dashboard</h1>
+                    <h1 className="h2 font-bolder mb-0">Dashboard</h1>
                 </div>
                
                 <div className="col-auto text-md-end">
@@ -78,7 +78,7 @@ const deleteInvoice = (e) => {
                             <button className="btn btn-sm btn-secondary dropdown-toggle mx-4" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 Quoality&nbsp;&nbsp;
                             </button>
-                            <ul className="dropdown-menu mt-2 border-dark" aria-labelledby="dropdownMenuButton">
+                            <ul className="dropdown-menu border-dark" aria-labelledby="dropdownMenuButton">
                                 <li><a className="dropdown-item" href="#">New Invoice</a></li>
                                 <li><a className="dropdown-item" href="#">Profile</a></li>
                                 <li><a className="dropdown-item" href="/">Log Out</a></li>
@@ -139,7 +139,7 @@ const deleteInvoice = (e) => {
         <div className="position-sticky sticky-top py-2 bg-white">
             <div className="row mt-5 h-auto p-0 w-full">
                 <div className="col mb-3 mb-md-0 align-self-start justify-content-start">
-                    <h1 className="h3 font-bolder mb-0">Invoices</h1>
+                    <h1 className="h2 font-bolder mb-0">Invoices</h1>
                     <p className="text-xs">List of recent Transactions</p>
                 </div>
                
@@ -150,7 +150,7 @@ const deleteInvoice = (e) => {
                 </div>
             </div>
         </div>
-
+        <hr />
         <div className="row my-10">
             <div className="table-responsive">
                 {process.browser && nayafunction().length !== 0 ?
@@ -202,12 +202,12 @@ const deleteInvoice = (e) => {
                         </tr>))}
                     </tbody>
                 </table>
-                : <p className="lead text-center py-5 mx-auto w-auto btn btn-lg btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Click Here Create Your First Invoice</p>}
+                : <div className="w-full d-flex justify-content-around"><p className="lead text-center py-5 mx-auto w-auto btn btn-lg btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Click Here Create Your First Invoice</p></div>}
             </div>
         </div>
 
 
-        <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-bs-backdrop="false">
+        <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div className="offcanvas-header">
                 <h5 id="offcanvasRightLabel" className="h5"><i className="bi bi-file-text"></i>&nbsp;&nbsp;Create new invoice</h5>
                 <i className="btn bi bi-x-lg" data-bs-dismiss="offcanvas" aria-label="Close" typeof="button"></i>
