@@ -51,7 +51,7 @@ function nayafunction() {
     keys.forEach((key) => {
         values.push(JSON.parse(localStorage.getItem(key)))
     })
-    
+    console.log(values)
     return values
 }
 
@@ -153,6 +153,7 @@ const deleteInvoice = (e) => {
 
         <div className="row my-10">
             <div className="table-responsive">
+                {process.browser && nayafunction().length !== 0 ?
                 <table className="table table-hover table-nowrap">
                     <thead className="thead-light">
                         <tr>
@@ -167,8 +168,8 @@ const deleteInvoice = (e) => {
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="invoice_body">
-                        {process.browser && nayafunction().map((invoice) => (
+                        <tbody id="invoice_body">
+                        {nayafunction().map((invoice) => (
                             <tr key={invoice.id}>
                             <td data-label="invoice_title">
                                 <span className="text-heading font-bold">
@@ -198,10 +199,10 @@ const deleteInvoice = (e) => {
                             <td data-label="" className="text-end">
                                 <span><a className="btn btn-sm" id={invoice.id} onClick={(e) => {deleteInvoice(e)}}><i className="bi bi-trash" id={invoice.id}></i></a></span>
                             </td>
-                        </tr>
-                        ))}
+                        </tr>))}
                     </tbody>
                 </table>
+                : <p className="lead text-center py-5 mx-auto w-auto btn btn-lg btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Click Here Create Your First Invoice</p>}
             </div>
         </div>
 
