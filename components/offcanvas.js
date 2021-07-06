@@ -1,8 +1,41 @@
 import { useState, useEffect } from "react";
 
 export default function Offcanvas() {
+
+    const [name, setName] = useState('')
+    const [price, setPrice] = useState('')
+    const [units, setUnits] = useState('')
+    const [date, setDate] = useState('')
+    const [total, setTotal] = useState('')
     
-    return (
+    const handleFormSubmit = (e) => {
+    
+    const invoiceID = Math.random().toString(36).substring(2, 6) + Math.random().toString(36).substring(7, 10)
+    
+    const garbageKey = "ally-supports-cache"
+    if (localStorage.getItem(garbageKey) !== null){
+        localStorage.removeItem(garbageKey)
+    }
+
+    if(1 === 1){
+        localStorage.setItem(  invoiceID , JSON.stringify({
+            id: `${invoiceID}`,
+            Name: `${name}`,
+            Description: 'Something',
+            Price: `${price}`,
+            Date: `${date}`,
+            Units: `${units}`,
+            Discounts: '69',
+            Total: `${total}`,
+            Tax: '18%',
+            Paid: true
+        }
+        )
+    );
+    }
+};
+    
+return (
 
 
     <>
@@ -12,32 +45,28 @@ export default function Offcanvas() {
                 <i className="btn bi bi-x-lg" data-bs-dismiss="offcanvas" aria-label="Close" typeof="button"></i>
             </div>
             <div className="offcanvas-body">
-            
-        {/* Form --
-        
-            -- Name
-            -- Price
-            -- Date
-            -- Units
-            -- Total
-            -- Status
-        
-         */}
 
                 <div className="mb-5 input-group-md text-xs">
-                    <input type="name" className="form-control mb-4" placeholder="Item Name" />
-                    <input type="number" className="form-control mb-4" placeholder="Price" />
-                    <input type="date" defaultValue={new Date()} className="form-control mb-4" placeholder="Date" />
-                    <input type="number" className="form-control mb-4" placeholder="Units" />
-                    <input type="number" className="form-control mb-4" placeholder="Total" />
-                    <input className="form-check-input" type="checkbox" name="check_example" id="check_example" />
-                    <label className="form-check-label ms-2 mt-n1" htmlFor="check_example">
-                        Already Paid ?
-                    </label>
-                </div>
+                <form method="POST" onSubmit={(e) => {handleFormSubmit(e)}}>
+                    <div>
+                        <input type="name" required className="form-control mb-4" placeholder="Item Name" onChange={(e) => {setName(e.target.value)}}/>
+                    </div>
+                    <div>
+                    <input type="number" required className="form-control mb-4" placeholder="Price" onChange={(e) => {setPrice(e.target.value)}}/>
+                    </div>
+                    <div>
+                    <input type="date" required className="form-control mb-4" placeholder="Date" onChange={(e) => {setDate(e.target.value)}}/>
+                    </div>
+                    <div>
+                    <input type="number" required className="form-control mb-4" placeholder="Units" onChange={(e) => {setUnits(e.target.value)}}/>
+                    </div>
+                    <div>
+                    <input type="number" required className="form-control mb-4" placeholder="Total" onChange={(e) => {setTotal(e.target.value)}}/>
+                    </div>
 
-                <button className="btn btn-md btn-primary w-100">Create Invoice</button>
-              
+                <button className="btn btn-sm btn-primary" >Create New Invoice</button>
+              </form>
+                </div>
             </div>
         </div>
     </>

@@ -1,9 +1,26 @@
-import { invoiceItems } from "../lib/lib"
+import { useEffect } from "react";
+import Offcanvas from "./offcanvas";
 
 const invoices = () => {
+
+    function nayafunction() {
+
+            localStorage.removeItem("ally-supports-cache")
+
+            const values=[]
+            const keys = Object.keys(localStorage)    
+            keys.forEach((key) => {
+                values.push(JSON.parse(localStorage.getItem(key)))
+            })
+
+            console.log(values)
+
+        return values
+    }
+
     return ( 
 
-<div className="row my-10">
+        <div className="row my-10">
             <div className="table-responsive">
                 <table className="table table-hover table-nowrap">
                     <thead className="thead-light">
@@ -18,9 +35,13 @@ const invoices = () => {
                         </tr>
                     </thead>
                     <tbody id="invoice_body">
-
-                        {invoiceItems.map((invoice) => (
-                            <tr key="">
+                        {process.browser && nayafunction().map((invoice) => (
+                            <tr key={invoice.id}>
+                            <td data-label="invoice_title">
+                                <span className="text-heading font-bold">
+                                    {invoice.id}
+                                </span>
+                            </td>
                             <td data-label="invoice_title">
                                 <span className="text-heading font-bold">
                                     {invoice.Name}
@@ -39,7 +60,7 @@ const invoices = () => {
                                 <span className="badge-md rounded bg-soft-success text-success">₹{invoice.Total}</span>
                             </td>
                             <td data-label="status">
-                                {invoice.Paid ? <a className="text-current"></a> : null}
+                                {invoice.Paid ? <a className="text-current">Paid</a> : null}
                             </td>
                             <td data-label="" className="text-end">
                                 <div className="dropdown">
