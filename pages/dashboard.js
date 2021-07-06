@@ -1,8 +1,62 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import Offcanvas from "../components/offcanvas";
-import Invoices from "../components/invoices";
+import { useState } from "react";
 
 const Dasboard = () => {
+
+    const [name, setName] = useState('')
+    const [price, setPrice] = useState('')
+    const [units, setUnits] = useState('')
+    const [date, setDate] = useState('')
+    const [total, setTotal] = useState('')
+    
+    const handleFormSubmit = (e) => {
+        if(process.browser){
+        
+        document.getElementById('offcanvasRight').classList.remove('show')
+        document.body.removeAttribute('style')
+    }
+    
+    const invoiceID = Math.random().toString(36).substring(2, 6) + Math.random().toString(36).substring(7, 10)
+    
+    const garbageKey = "ally-supports-cache"
+    if (localStorage.getItem(garbageKey) !== null){
+        localStorage.removeItem(garbageKey)
+    }
+    
+    if(name !== "" && price !== "" && units !== "" && date !== "" && total !== ""){
+        localStorage.setItem(  invoiceID , JSON.stringify({
+            id: `${invoiceID}`,
+            Name: `${name}`,
+            Description: 'Something',
+            Price: `${price}`,
+            Date: `${date}`,
+            Units: `${units}`,
+            Discounts: '69',
+            Total: `${total}`,
+            Tax: '18%',
+            Paid: true
+        }
+        )
+        );
+    }
+    
+};
+
+function nayafunction() {
+    
+    localStorage.removeItem("ally-supports-cache")
+    
+    const values=[]
+    const keys = Object.keys(localStorage)    
+    keys.forEach((key) => {
+        values.push(JSON.parse(localStorage.getItem(key)))
+    })
+
+    console.log(values)
+    
+    return values
+}
+
     return ( 
         <>
             
@@ -91,8 +145,101 @@ const Dasboard = () => {
             </div>
         </div>
 
-        <Invoices />
-        <Offcanvas />
+        <div className="row my-10">
+            <div className="table-responsive">
+                <table className="table table-hover table-nowrap">
+                    <thead className="thead-light">
+                        <tr>
+                            <th scope="col" className="text-dark font-bolder">Name</th>
+                            <th scope="col" className="text-dark font-bolder">Price</th>
+                            <th scope="col" className="text-dark font-bolder">Date</th>
+                            <th scope="col" className="text-dark font-bolder">Units</th>
+                            <th scope="col" className="text-dark font-bolder">Total</th>
+                            <th scope="col" className="text-dark font-bolder">Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoice_body">
+                        {process.browser && nayafunction().map((invoice) => (
+                            <tr key={invoice.id}>
+                            <td data-label="invoice_title">
+                                <span className="text-heading font-bold">
+                                    {invoice.id}
+                                </span>
+                            </td>
+                            <td data-label="invoice_title">
+                                <span className="text-heading font-bold">
+                                    {invoice.Name}
+                                </span>
+                            </td>
+                            <td data-label="Price">
+                                <span>{invoice.Price}</span>
+                            </td>
+                            <td data-label="Date">
+                                <span className="text-current">{invoice.Date}</span>
+                            </td>
+                            <td data-label="units_sold">
+                                <span className="text-current">{invoice.Units}</span>
+                            </td>
+                            <td data-label="total">
+                                <span className="badge-md rounded bg-soft-success text-success">₹{invoice.Total}</span>
+                            </td>
+                            <td data-label="status">
+                                {invoice.Paid ? <a className="text-current">Paid</a> : null}
+                            </td>
+                            <td data-label="" className="text-end">
+                                <div className="dropdown">
+                                    <a className="text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i className="bi bi-three-dots-vertical"></i>
+                                    </a>
+                                    <div className="dropdown-menu dropdown-menu-end">
+                                        <a href="#!" className="dropdown-item">
+                                            Delete
+                                        </a>
+                                        <a href="#!" className="dropdown-item">
+                                            Edit
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-bs-backdrop="false">
+            <div className="offcanvas-header">
+                <h5 id="offcanvasRightLabel" className="h5"><i className="bi bi-file-text"></i>&nbsp;&nbsp;Create new invoice</h5>
+                <i className="btn bi bi-x-lg" data-bs-dismiss="offcanvas" aria-label="Close" typeof="button"></i>
+            </div>
+            <div className="offcanvas-body">
+
+                <div className="mb-5 input-group-md text-xs">
+                <form method="POST" onSubmit={(e) => {handleFormSubmit(e)}}>
+                    <div>
+                        <input type="name" required className="form-control mb-4" placeholder="Item Name" onChange={(e) => {setName(e.target.value)}}/>
+                    </div>
+                    <div>
+                    <input type="number" required className="form-control mb-4" placeholder="Price" onChange={(e) => {setPrice(e.target.value)}}/>
+                    </div>
+                    <div>
+                    <input type="date" required className="form-control mb-4" placeholder="Date" onChange={(e) => {setDate(e.target.value)}}/>
+                    </div>
+                    <div>
+                    <input type="number" required className="form-control mb-4" placeholder="Units" onChange={(e) => {setUnits(e.target.value)}}/>
+                    </div>
+                    <div>
+                    <input type="number" required className="form-control mb-4" placeholder="Total" onChange={(e) => {setTotal(e.target.value)}}/>
+                    </div>
+
+                <button className="btn btn-sm btn-primary" >Create New Invoice</button>
+              </form>
+                </div>
+            </div>
+        </div>
         
         </section>
 

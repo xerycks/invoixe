@@ -9,6 +9,12 @@ export default function Offcanvas() {
     const [total, setTotal] = useState('')
     
     const handleFormSubmit = (e) => {
+        e.preventDefault();
+        
+        if(process.browser){
+        e.preventDefault();
+        e.stopPropagation();    
+    }
     
     const invoiceID = Math.random().toString(36).substring(2, 6) + Math.random().toString(36).substring(7, 10)
     
@@ -16,8 +22,8 @@ export default function Offcanvas() {
     if (localStorage.getItem(garbageKey) !== null){
         localStorage.removeItem(garbageKey)
     }
-
-    if(1 === 1){
+    
+    if(name !== "" && price !== "" && units !== "" && date !== "" && total !== ""){
         localStorage.setItem(  invoiceID , JSON.stringify({
             id: `${invoiceID}`,
             Name: `${name}`,
@@ -31,8 +37,11 @@ export default function Offcanvas() {
             Paid: true
         }
         )
-    );
+        );
     }
+        if(process.browser){
+            nayafunction();
+        }
 };
     
 return (
