@@ -51,10 +51,16 @@ function nayafunction() {
     keys.forEach((key) => {
         values.push(JSON.parse(localStorage.getItem(key)))
     })
-
-    console.log(values)
     
     return values
+}
+
+const deleteInvoice = (e) => {
+    if(process.browser){
+        console.log(e.target.id);
+        localStorage.removeItem(e.target.id)
+        window.location.reload();
+    }
 }
 
     return ( 
@@ -150,6 +156,8 @@ function nayafunction() {
                 <table className="table table-hover table-nowrap">
                     <thead className="thead-light">
                         <tr>
+
+                            <th scope="col" className="text-dark font-bolder">Invoixe ID</th>
                             <th scope="col" className="text-dark font-bolder">Name</th>
                             <th scope="col" className="text-dark font-bolder">Price</th>
                             <th scope="col" className="text-dark font-bolder">Date</th>
@@ -188,19 +196,7 @@ function nayafunction() {
                                 {invoice.Paid ? <a className="text-current">Paid</a> : null}
                             </td>
                             <td data-label="" className="text-end">
-                                <div className="dropdown">
-                                    <a className="text-muted" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i className="bi bi-three-dots-vertical"></i>
-                                    </a>
-                                    <div className="dropdown-menu dropdown-menu-end">
-                                        <a href="#!" className="dropdown-item">
-                                            Delete
-                                        </a>
-                                        <a href="#!" className="dropdown-item">
-                                            Edit
-                                        </a>
-                                    </div>
-                                </div>
+                                <span><a className="btn btn-sm" id={invoice.id} onClick={(e) => {deleteInvoice(e)}}><i className="bi bi-trash" id={invoice.id}></i></a></span>
                             </td>
                         </tr>
                         ))}
